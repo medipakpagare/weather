@@ -16,7 +16,8 @@ let weatherBtn = document
       .then((data) => {
 try{
        //for temp
-    temp.innerHTML=data.main.temp
+       // convert temp from Kelvin to Celsius:
+    temp.innerHTML= Math.round(data.main.temp - 273.15) + '<sup>°C</sup>'
     
     //for weather type
     weatherType.innerHTML=data.weather.map((weatherTypes=>weatherTypes.main))
